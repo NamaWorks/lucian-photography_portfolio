@@ -1,3 +1,4 @@
+import { oswald } from "@/app/layout";
 import GridContainer from "@/components/ui/GridContainer/GridContainer";
 import Image from "next/image";
 
@@ -23,9 +24,9 @@ const Hero = () => {
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   className="lucide lucide-arrow-right"
                 >
                   <path d="M5 12h14" />
@@ -44,8 +45,8 @@ const Hero = () => {
         </GridContainer>
       </section>
 
-      <section className="home-section mt-[120px] p-3">
-        <div className="flex object-scale-down overflow-hidden rounded-2xl h-120">
+      <section className="home-section mt-[120px] pt-3 pb-3 relative">
+        <div className="flex object-scale-down overflow-hidden rounded-2xl h-180">
           <Image
             className="object-cover object-center"
             layout="responsive"
@@ -55,6 +56,9 @@ const Hero = () => {
             alt="Lucian Picture"
           />
         </div>
+        <p className={`flex flex-row justify-between text-[300px] font-black absolute text-white top-[150] w-full ${oswald.className}`}>
+          <span>LUCI</span><span>AN</span>
+        </p>
       </section>
     </>
   );
