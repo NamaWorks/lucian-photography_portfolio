@@ -37,7 +37,7 @@ const CalendarBar = () => {
           <button
             onClick={()=>{
               setDates(getNextDays(dates))
-              console.log(dates)
+              // console.log(dates)
             }}
           >
             click me
