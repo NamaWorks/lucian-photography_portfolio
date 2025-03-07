@@ -37,7 +37,7 @@ const CalendarBar = () => {
         </button>
 
         <div className="overflow-hidden">
-          <div className="flex flex-row4 p-10">
+          <div className="flex flex-row4 p-10 relative">
             {dates.map((date, i) => {
               return <DateSquare key={i} data={date} />;
             })}
