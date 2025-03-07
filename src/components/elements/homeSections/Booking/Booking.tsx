@@ -1,6 +1,6 @@
-import { chathura, oswald } from "@/app/layout";
 import CalendarBar from "@/components/ui/CalendarBar/CalendarBar";
 import GridContainer from "@/components/ui/GridContainer/GridContainer";
+import { chathura, oswald } from "@/utils/fonts/fonts";
 
 import React from "react";
 

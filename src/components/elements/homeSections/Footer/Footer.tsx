@@ -1,5 +1,5 @@
-import { chathura, oswald } from '@/app/layout'
 import GridContainer from '@/components/ui/GridContainer/GridContainer'
+import { chathura, oswald } from '@/utils/fonts/fonts'
 import React from 'react'
 
 const Footer = () => {

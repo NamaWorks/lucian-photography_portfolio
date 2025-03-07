@@ -8,17 +8,17 @@ export const getNextDays = (dates: Date[]): Date[] => {
     lastDay = dates[dates.length-1];
   }
 
-  console.log(lastDay)
 
-  for (let i = 0; i < 10; i++) {
+
+  for (let i = 0; i <= 11; i++) {
     const nextDay = new Date(lastDay);
     nextDay.setDate(lastDay.getDate() + i);
   if(!newDates.includes(nextDay)){
     newDates?.push(nextDay);
+  } else {
+    console.log(nextDay)
   }
   }
-
-  console.log(newDates)
   
   return newDates;
 };

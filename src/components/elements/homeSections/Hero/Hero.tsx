@@ -1,5 +1,5 @@
-import { oswald } from "@/app/layout";
 import GridContainer from "@/components/ui/GridContainer/GridContainer";
+import { oswald } from "@/utils/fonts/fonts";
 import Image from "next/image";
 
 const Hero = () => {
