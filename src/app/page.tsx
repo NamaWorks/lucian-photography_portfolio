@@ -5,7 +5,9 @@ import ImagesScroll from "@/components/elements/homeSections/ImagesScroll/Images
 import Projects from "@/components/elements/homeSections/Projects/Projects";
 import CalendarContextProvider from "@/utils/contexts/context_providers/CalendarContextProvider";
 
+
 export default function Home() {
+
   return (
     <>
     <CalendarContextProvider>
