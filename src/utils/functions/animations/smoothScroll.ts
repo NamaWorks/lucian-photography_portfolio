@@ -12,7 +12,7 @@ export const smoothScroll = () => {
   };
 
   const smoothStep = () => {
-    window.scrollBy(0, scrollAmount * 0.1);
+    window.scrollBy(0, scrollAmount * 0.4);
     scrollAmount *= 0.9;
     if (Math.abs(scrollAmount) > 0.5) {
       scrollTimeout = window.requestAnimationFrame(smoothStep);

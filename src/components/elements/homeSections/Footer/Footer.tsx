@@ -5,7 +5,7 @@ import React from 'react'
 const Footer = () => {
   return (
     <>
-      <footer className='bg-[#2F3E42] pr-3 pl-3 p-[120px]'>
+      <footer className='bg-[#2F3E42] pr-3 pl-3 p-[120px] h-[100svh]'>
         <GridContainer>
           <div className='flex flex-col text-[white] text-[40px]/[0.5] col-start-5 col-end-6'>
             <p className={`${oswald.className} font-medium text-[47px]`}>
