@@ -12,24 +12,36 @@ const Hero = () => {
   const valuesRef = useRef<HTMLDivElement>(null)
   const casesRef = useRef<HTMLDivElement>(null)
 
+  const lineAnimationTime = 80
+
   useEffect(() => {
 
     if(valuesRef.current){
-      const ps = valuesRef.current.querySelectorAll('p').forEach((p, i)=>{setTimeout(() => {headerTextAnimation(p)}, i*120);})
+      valuesRef.current.querySelectorAll('p').forEach((p, i)=>{setTimeout(() => {headerTextAnimation(p)}, i*lineAnimationTime);})
     }
 
-    setTimeout(() => {
-      if(casesRef){}
-      headerTextAnimation(casesRef.current)
-    }, 360);
+    if (headerRef.current){
+      headerRef.current.style.opacity = '1'
+      splitTextIntoLines(headerRef.current);
+      const lines = headerRef.current.querySelectorAll('span')
+      if(lines){
+          lines.forEach((line, i)=>{
+            line.style.opacity = '0';
+            line.style.display = 'inline-block'
+            // line.style.transform = 'translateY(-200px)'
+            setTimeout(() => {
+              headerTextAnimation(line)
+              console.log(line.style)
+            }, lineAnimationTime * i);
+          })
+        }
+      }
 
-setTimeout(() => {
-  if (headerRef.current) {
-    splitTextIntoLines(headerRef.current);
-    headerTextAnimation(headerRef.current);
-  }
-  
-}, 480);
+    setTimeout(() => {
+      if(casesRef){
+        headerTextAnimation(casesRef.current)
+      }
+    }, 360);
 
   }, []);
 
@@ -67,13 +79,7 @@ setTimeout(() => {
           </div>
 
           <div className="col-start-4 col-span-3">
-            <h1 ref={headerRef} className="opacity-0 font-bold text-[40px]/9 " onClick={()=>{
-              if (headerRef.current){
-                // splitTextIntoLines(headerRef.current);
-                headerTextAnimation(headerRef.current);
-                // headerRef.current.querySelectorAll('span').forEach((span)=>{headerTextAnimation(span); setTimeout(() => {console.log('timing')}, 120);})
-              }
-            }}>
+            <h1 ref={headerRef} className="opacity-0 font-bold text-[40px]/9 ">
               Photography Studio that highlights your best angles. Create a
               portfolio that turns heads. Own the moment.
             </h1>
