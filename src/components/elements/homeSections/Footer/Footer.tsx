@@ -12,29 +12,27 @@ const Footer = () => {
 
   const [ footerAnimated, setFooterAnimated ] = useState<boolean>(false)
 
-  window.onscroll = () => {
-    if (footerRef.current) {
-      if (
-        footerAnimated === false &&
-        footerTextRef.current &&
-        footerRef.current?.getBoundingClientRect().top < 100
-      ) {
-        const ps = footerTextRef.current.querySelectorAll("p");
-        ps.forEach((p, i) => {
-          p.style.opacity = "0";
-          setTimeout(() => {
-            headerTextAnimation(p);
-          }, 60 * i);
-        });
-        setFooterAnimated(true);
+  if(typeof window !== "undefined"){
+    window.onscroll = () => {
+      if (footerRef.current) {
+        if (
+          footerAnimated === false &&
+          footerTextRef.current &&
+          footerRef.current?.getBoundingClientRect().top < 200
+        ) {
+          const ps = footerTextRef.current.querySelectorAll("p");
+          ps.forEach((p, i) => {
+            p.style.opacity = "0";
+            setTimeout(() => {
+              headerTextAnimation(p);
+            }, 60 * i);
+          });
+          setFooterAnimated(true);
+        }
       }
-    }
-  };
-
-  useEffect(()=>{
-
-  },[])
-
+    };
+  }
+    
   return (
     <>
       <footer className='bg-[#2F3E42] pr-3 pl-3 p-[120px] h-[100svh]' ref={footerRef}>
