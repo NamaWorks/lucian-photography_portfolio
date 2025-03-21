@@ -8,7 +8,6 @@ const projectsLayout = ({
   return (
   <>
     <div>{children}</div>
-    <p className='h-20 bg-black'>choripanes</p>
   </>
   )
 }
