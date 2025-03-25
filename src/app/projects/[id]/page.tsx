@@ -71,17 +71,17 @@ const Project = ({params}:ProjectParams) => {
               <div key={`project-image-${i}`}>
                 <Image
                   // src={`${image.split('/').slice(-1)}`}
-                  src={`../../../../public/assets/img/projects-imgs/${image.split('/').slice(-1)}`}
+                  // src={`../../../../public/assets/img/projects-imgs/${image.split('/').slice(-1)}`}
+                  src={'/assets/img/projects-imgs/' + `${image.split('/').slice(-1)}`}
                   alt={`${image.split('/').slice(-1)}`}
                   width={400}
                   height={400}
-                >
-                </Image>
-
+                />
               </div>
             )
             })
           }
+
         </div>
       </GridContainer>
     </section>
