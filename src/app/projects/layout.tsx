@@ -1,3 +1,4 @@
+import SmoothScrollProvider from '@/utils/client_fn_providers/SmoothScrollProvider';
 import React from 'react'
 
 const projectsLayout = ({
@@ -7,7 +8,9 @@ const projectsLayout = ({
 }>) => {
   return (
   <>
+  <SmoothScrollProvider>
     <div>{children}</div>
+  </SmoothScrollProvider>
   </>
   )
 }
