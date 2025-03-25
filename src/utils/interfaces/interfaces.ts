@@ -17,3 +17,11 @@ export interface CalendarContextInterface {
   dates: Date[],
   setDates: React.Dispatch<React.SetStateAction<Date[]>>,
 }
+
+export interface ProjectParams {
+  params: ProjectParamsInterior
+}
+
+export interface ProjectParamsInterior {
+  id:string,
+}

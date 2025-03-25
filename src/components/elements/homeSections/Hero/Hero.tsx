@@ -39,7 +39,7 @@ const Hero = () => {
 
     setTimeout(() => {
       if(casesRef){
-        headerTextAnimation(casesRef.current)
+        headerTextAnimation(casesRef.current as HTMLElement)
       }
     }, 360);
 

@@ -5,7 +5,7 @@ export const projectsData =[
     date: "01_2025",
     modelName: "Lena Kovacs",
     texts: {
-      textA: "The shoot captures the subject in a striking, minimalist light. The cool blue aura envelops him, creating a captivating mood, while the simplicity of the setup lets the subject’s presence take center stage. The focus on clean lines and light contrasts emphasizes the emotional depth of the moment.",
+      textA: "The shoot immerses the subject in minimalist light and a cool blue aura, drawing out raw emotional depth.",
       textB: "Through the lens, I wanted to capture not just the look, but the energy and mood. The blue tones and subtle lighting create a quiet tension that speaks volumes, turning a simple portrait into something more powerful.",
       textC: `"The session was an incredible experience. I felt both challenged and inspired by the concept, especially with the unique styling and lighting choices. The shoot really pushed me out of my comfort zone, but it was exciting to see how much personality could come through with such a minimalist setup. I’m really happy with how the images turned out!"`,
     },

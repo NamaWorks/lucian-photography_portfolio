@@ -7,14 +7,16 @@ export const splitTextIntoLines = (element: HTMLElement) => {
 
   const tempSpan = document.createElement('span');
   element.classList.forEach((item)=>{tempSpan.classList.add(item)})
+  // const container = element.parentElement
+  // if(container){container.appendChild(tempSpan)}else{document.body.appendChild(tempSpan)}
   document.body.appendChild(tempSpan)
-
 
   for (let i = 0; i < words.length; i++) {
     tempSpan.textContent = currentLine + (currentLine ? " " : "") + words[i];
 
     if(tempSpan.offsetWidth > Number(containerWidth)){
       lines.push(currentLine);
+      console.log(currentLine)
       currentLine = words[i];
     } else{
       currentLine += (currentLine ? ' ' : '') + words[i]
@@ -26,5 +28,7 @@ export const splitTextIntoLines = (element: HTMLElement) => {
   }
   
   document.body.removeChild(tempSpan)
+
+  // if(container){container.removeChild(tempSpan)}
   element.innerHTML = lines.map((line)=>{return `<span>${line}</span>`}).join('<br>')
 }
