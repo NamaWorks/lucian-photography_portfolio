@@ -1,4 +1,4 @@
-export const headerTextAnimation = (element: HTMLElement) => {
+export const linesTextAnimation = (element: HTMLElement) => {
   let moveAmount = 80;
   let opacityAnimated = 1;
   let timeoutA: number | null;

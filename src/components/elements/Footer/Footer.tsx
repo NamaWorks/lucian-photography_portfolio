@@ -2,8 +2,8 @@
 
 import GridContainer from '@/components/ui/GridContainer/GridContainer'
 import { chathura, oswald } from '@/utils/fonts/fonts'
-import { headerTextAnimation } from '@/utils/functions/animations/headerTextAnimation';
-import React, { useEffect, useRef, useState } from 'react'
+import { linesTextAnimation } from '@/utils/functions/animations/linesTextAnimation';
+import React, { useRef, useState } from 'react'
 
 const Footer = () => {
 
@@ -24,7 +24,7 @@ const Footer = () => {
           ps.forEach((p, i) => {
             p.style.opacity = "0";
             setTimeout(() => {
-              headerTextAnimation(p);
+              linesTextAnimation(p);
             }, 60 * i);
           });
           setFooterAnimated(true);

@@ -1,3 +1,4 @@
+import Footer from '@/components/elements/Footer/Footer';
 import SmoothScrollProvider from '@/utils/client_fn_providers/SmoothScrollProvider';
 import React from 'react'
 
@@ -10,6 +11,7 @@ const projectsLayout = ({
   <>
   <SmoothScrollProvider>
     <div>{children}</div>
+    <Footer/>
   </SmoothScrollProvider>
   </>
   )

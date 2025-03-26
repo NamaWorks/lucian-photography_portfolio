@@ -7,8 +7,6 @@ export const splitTextIntoLines = (element: HTMLElement) => {
 
   const tempSpan = document.createElement('span');
   element.classList.forEach((item)=>{tempSpan.classList.add(item)})
-  // const container = element.parentElement
-  // if(container){container.appendChild(tempSpan)}else{document.body.appendChild(tempSpan)}
   document.body.appendChild(tempSpan)
 
   for (let i = 0; i < words.length; i++) {

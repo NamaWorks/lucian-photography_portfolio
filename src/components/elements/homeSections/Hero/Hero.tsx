@@ -2,7 +2,7 @@
 
 import GridContainer from "@/components/ui/GridContainer/GridContainer";
 import { oswald } from "@/utils/fonts/fonts";
-import { headerTextAnimation } from "@/utils/functions/animations/headerTextAnimation";
+import { linesTextAnimation } from "@/utils/functions/animations/linesTextAnimation";
 import { splitTextIntoLines } from "@/utils/functions/ui_fn/splitTextIntoLines";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
@@ -17,7 +17,7 @@ const Hero = () => {
   useEffect(() => {
 
     if(valuesRef.current){
-      valuesRef.current.querySelectorAll('p').forEach((p, i)=>{setTimeout(() => {headerTextAnimation(p)}, i*lineAnimationTime);})
+      valuesRef.current.querySelectorAll('p').forEach((p, i)=>{setTimeout(() => {linesTextAnimation(p)}, i*lineAnimationTime);})
     }
 
     if (headerRef.current){
@@ -30,7 +30,7 @@ const Hero = () => {
             line.style.display = 'inline-block'
             // line.style.transform = 'translateY(-200px)'
             setTimeout(() => {
-              headerTextAnimation(line)
+              linesTextAnimation(line)
               console.log(line.style)
             }, lineAnimationTime * i);
           })
@@ -39,7 +39,7 @@ const Hero = () => {
 
     setTimeout(() => {
       if(casesRef){
-        headerTextAnimation(casesRef.current as HTMLElement)
+        linesTextAnimation(casesRef.current as HTMLElement)
       }
     }, 360);
 
