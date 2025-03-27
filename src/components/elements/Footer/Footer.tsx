@@ -18,7 +18,7 @@ const Footer = () => {
         if (
           footerAnimated === false &&
           footerTextRef.current &&
-          footerRef.current?.getBoundingClientRect().top < 200
+          footerRef.current?.getBoundingClientRect().top < 300
         ) {
           const ps = footerTextRef.current.querySelectorAll("p");
           ps.forEach((p, i) => {

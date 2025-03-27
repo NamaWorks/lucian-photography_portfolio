@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Navbar from "@/components/elements/homeSections/Navbar/Navbar";
+import Navbar from "@/components/elements/Navbar/Navbar";
 import { latoSans } from "@/utils/fonts/fonts";
-// import GridContainer from "@/components/ui/GridContainer/GridContainer";
 
 export const metadata: Metadata = {
   title: "Lucian Photography",

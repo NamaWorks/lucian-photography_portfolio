@@ -5,3 +5,8 @@
   --color-dark-100: #1f1d24;
   color: #1f1d24;
 }
+
+@theme {
+  --breakpoint-xs: 350px;
+  --breakpoint-s: 450px;
+}

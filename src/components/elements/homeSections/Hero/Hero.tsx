@@ -20,11 +20,12 @@ const Hero = () => {
       valuesRef.current.querySelectorAll('p').forEach((p, i)=>{setTimeout(() => {linesTextAnimation(p)}, i*lineAnimationTime);})
     }
 
-    if (headerRef.current){
-      headerRef.current.style.opacity = '1'
-      splitTextIntoLines(headerRef.current);
-      const lines = headerRef.current.querySelectorAll('span')
-      if(lines){
+    setTimeout(() => {
+        if (headerRef.current){
+        headerRef.current.style.opacity = '1'
+        splitTextIntoLines(headerRef.current);
+        const lines = headerRef.current.querySelectorAll('span')
+        if(lines){
           lines.forEach((line, i)=>{
             line.style.opacity = '0';
             line.style.display = 'inline-block'
@@ -36,6 +37,7 @@ const Hero = () => {
           })
         }
       }
+      }, 480);
 
     setTimeout(() => {
       if(casesRef){
