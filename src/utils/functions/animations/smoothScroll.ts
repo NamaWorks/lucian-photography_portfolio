@@ -29,7 +29,7 @@ export const smoothScroll = () => {
 
 // Variables:
 
-// scrollTimeout: A variable to store the ID of the requestAnimationFrame call.
+// scrollTimeout: A variable to store the ID of the requestAnimationFrame call. => used in cancelAnimationFrame()
 // scrollAmount: A variable to accumulate the scroll amount.
 
 // handleWheel Function:

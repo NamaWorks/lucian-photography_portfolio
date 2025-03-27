@@ -14,7 +14,6 @@ export const splitTextIntoLines = (element: HTMLElement) => {
 
     if(tempSpan.offsetWidth > Number(containerWidth)){
       lines.push(currentLine);
-      console.log(currentLine)
       currentLine = words[i];
     } else{
       currentLine += (currentLine ? ' ' : '') + words[i]

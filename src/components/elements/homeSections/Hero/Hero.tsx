@@ -29,10 +29,8 @@ const Hero = () => {
           lines.forEach((line, i)=>{
             line.style.opacity = '0';
             line.style.display = 'inline-block'
-            // line.style.transform = 'translateY(-200px)'
             setTimeout(() => {
               linesTextAnimation(line)
-              console.log(line.style)
             }, lineAnimationTime * i);
           })
         }
