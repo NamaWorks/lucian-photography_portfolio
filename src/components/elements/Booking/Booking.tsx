@@ -1,3 +1,4 @@
+import BookNowButton from "@/components/ui/BookNowButton/BookNowButton";
 import CalendarBar from "@/components/ui/CalendarBar/CalendarBar";
 import GridContainer from "@/components/ui/GridContainer/GridContainer";
 import { chathura, oswald } from "@/utils/fonts/fonts";
@@ -45,6 +46,8 @@ const Booking = () => {
           <div className="col-start-1 col-end-7">
             <CalendarBar/>
           </div>
+
+          <BookNowButton/>
 
         </GridContainer>
       </section>

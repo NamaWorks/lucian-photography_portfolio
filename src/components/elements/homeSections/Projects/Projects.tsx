@@ -15,8 +15,7 @@ const Projects = () => {
 
     if(projectsRef.current){
       projectsRef.current.style.top = '0'
-      parallaxEffectOnScroll(projectsRef.current, 150)
-      
+      parallaxEffectOnScroll(projectsRef.current, 150)      
     }
 
   },[])
@@ -26,50 +25,10 @@ const Projects = () => {
       <section className={`pr-3 pl-3 relative`} ref={projectsRef}>
         <GridContainer>
           {
-            projectsData.map((project)=>{
+            projectsData.map((project, i)=>{
               if(getRandomInt(10) > 3){
                 return (
-                <div key={`${project.projectId}-projects-section`} className='grid grid-cols-4 col-span-4'>
-                  <div className='col-span-1'></div>
-                  <div className='col-span-2'>
-                    <ProjectCard data={project}/>
-                  </div>
-                </div>
-                )
-              } else {
-                return (
-                <div key={`${project.projectId}-projects-section`} className='col-span-2'>
-                  <ProjectCard data={project}/>
-                </div>
-                )
-              }
-            })
-          }
-          {
-            projectsData.map((project)=>{
-              if(getRandomInt(10) > 3){
-                return (
-                <div key={`${project.projectId}-projects-section`} className='grid grid-cols-4 col-span-4'>
-                  <div className='col-span-1'></div>
-                  <div className='col-span-2'>
-                    <ProjectCard data={project}/>
-                  </div>
-                </div>
-                )
-              } else {
-                return (
-                <div key={`${project.projectId}-projects-section`} className='col-span-2'>
-                  <ProjectCard data={project}/>
-                </div>
-                )
-              }
-            })
-          }
-          {
-            projectsData.map((project)=>{
-              if(getRandomInt(10) > 3){
-                return (
-                <div key={`${project.projectId}-projects-section`} className='grid grid-cols-4 col-span-4'>
+                <div key={`${project.projectId}-projects-section-${i}`} className='grid grid-cols-4 col-span-4'>
                   <div className='col-span-1'></div>
                   <div className='col-span-2'>
                     <ProjectCard data={project}/>

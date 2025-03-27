@@ -9,7 +9,7 @@ import { linesTextAnimation } from '@/utils/functions/animations/linesTextAnimat
 import { splitTextIntoLines } from '@/utils/functions/ui_fn/splitTextIntoLines';
 import { 
   ProjectDataInterface, 
-  ProjectParams, 
+  // ProjectParams, 
   ProjectParamsInterior 
 } from '@/utils/interfaces/interfaces';
 import {
@@ -19,9 +19,10 @@ import {
    useRef, 
    useState 
   } from 'react';
+import { PageProps } from '../../../../.next/types/app/page';
 
 
-const Project = ({params}:ProjectParams) => {
+const Project = ({params}:PageProps) => {
 
   const { id } = use(params as unknown as Usable<ProjectParamsInterior>)
   // const { id } = params
