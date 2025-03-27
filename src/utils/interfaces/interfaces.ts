@@ -16,6 +16,10 @@ images: string[],
 export interface CalendarContextInterface {
   dates: Date[],
   setDates: React.Dispatch<React.SetStateAction<Date[]>>,
+  chosenDate: Date,
+  setChosenDate: React.Dispatch<React.SetStateAction<Date>>,
+  reservationsOpen: boolean,
+  setReservationsOpen: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 export interface ProjectParams {

@@ -6,9 +6,11 @@ import { CalendarContext } from "../contexts";
 
 const CalendarContextProvider = ({ children }: Readonly<{ children: React.ReactNode }>) => {
   const [ dates, setDates ] = useState<Date[]>([new Date()])
+  const [ chosenDate, setChosenDate ] = useState<Date>(new Date())
+  const [ reservationsOpen, setReservationsOpen ] = useState<boolean>(true)
 
   return (
-    <CalendarContext.Provider value={{ dates, setDates }}>
+    <CalendarContext.Provider value={{ dates, setDates, chosenDate, setChosenDate, reservationsOpen, setReservationsOpen }}>
       {children}
     </CalendarContext.Provider>
   );

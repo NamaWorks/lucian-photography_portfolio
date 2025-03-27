@@ -68,9 +68,9 @@ export const projectsData =[
       textC: `"The session was an incredible experience. I felt both challenged and inspired by the concept, especially with the unique styling and lighting choices. The shoot really pushed me out of my comfort zone, but it was exciting to see how much personality could come through with such a minimalist setup. I’m really happy with how the images turned out!"`,
     },
     images: [
+      'lucian-photography-portfolio/public/assets/img/projects-imgs/lena-kovacs-03.webp',
       'lucian-photography-portfolio/public/assets/img/projects-imgs/lena-kovacs-01.webp',
       'lucian-photography-portfolio/public/assets/img/projects-imgs/lena-kovacs-02.webp',
-      'lucian-photography-portfolio/public/assets/img/projects-imgs/lena-kovacs-03.webp',
       'lucian-photography-portfolio/public/assets/img/projects-imgs/lena-kovacs-04.webp',
       'lucian-photography-portfolio/public/assets/img/projects-imgs/lena-kovacs-05.webp',
       'lucian-photography-portfolio/public/assets/img/projects-imgs/lena-kovacs-06.webp',
@@ -89,9 +89,9 @@ export const projectsData =[
     
     
     images: [
+      'lucian-photography-portfolio/public/assets/img/projects-imgs/amara-sinclair-03.webp',
       'lucian-photography-portfolio/public/assets/img/projects-imgs/amara-sinclair-01.webp',
       'lucian-photography-portfolio/public/assets/img/projects-imgs/amara-sinclair-02.webp',
-      'lucian-photography-portfolio/public/assets/img/projects-imgs/amara-sinclair-03.webp',
       'lucian-photography-portfolio/public/assets/img/projects-imgs/amara-sinclair-04.webp',
       'lucian-photography-portfolio/public/assets/img/projects-imgs/amara-sinclair-05.webp',
       'lucian-photography-portfolio/public/assets/img/projects-imgs/amara-sinclair-06.webp',
@@ -108,9 +108,9 @@ export const projectsData =[
       textC: `"The session was a powerful experience. It pushed me to explore my street persona and embrace my inner strength. The lighting and styling really brought out my intense energy, while still allowing my authentic self to shine through. It was a challenge, but I’m pumped about how it turned out!"`,
     },  
     images: [
+      'lucian-photography-portfolio/public/assets/img/projects-imgs/matteo-moreau-03.webp',
       'lucian-photography-portfolio/public/assets/img/projects-imgs/matteo-moreau-01.webp',
       'lucian-photography-portfolio/public/assets/img/projects-imgs/matteo-moreau-02.webp',
-      'lucian-photography-portfolio/public/assets/img/projects-imgs/matteo-moreau-03.webp',
       'lucian-photography-portfolio/public/assets/img/projects-imgs/matteo-moreau-04.webp',
       'lucian-photography-portfolio/public/assets/img/projects-imgs/matteo-moreau-05.webp',
     ],
@@ -126,8 +126,8 @@ export const projectsData =[
       textC: `"The session was an incredible experience. I felt both challenged and inspired by the concept, especially with the unique styling and lighting choices. The shoot really pushed me out of my comfort zone, but it was exciting to see how much personality could come through with such a minimalist setup. I’m really happy with how the images turned out!"`,
     },
     images: [
-      'lucian-photography-portfolio/public/assets/img/projects-imgs/lena-kovacs-01.webp',
       'lucian-photography-portfolio/public/assets/img/projects-imgs/lena-kovacs-02.webp',
+      'lucian-photography-portfolio/public/assets/img/projects-imgs/lena-kovacs-01.webp',
       'lucian-photography-portfolio/public/assets/img/projects-imgs/lena-kovacs-03.webp',
       'lucian-photography-portfolio/public/assets/img/projects-imgs/lena-kovacs-04.webp',
       'lucian-photography-portfolio/public/assets/img/projects-imgs/lena-kovacs-05.webp',
@@ -147,8 +147,8 @@ export const projectsData =[
     
     
     images: [
-      'lucian-photography-portfolio/public/assets/img/projects-imgs/amara-sinclair-01.webp',
       'lucian-photography-portfolio/public/assets/img/projects-imgs/amara-sinclair-02.webp',
+      'lucian-photography-portfolio/public/assets/img/projects-imgs/amara-sinclair-01.webp',
       'lucian-photography-portfolio/public/assets/img/projects-imgs/amara-sinclair-03.webp',
       'lucian-photography-portfolio/public/assets/img/projects-imgs/amara-sinclair-04.webp',
       'lucian-photography-portfolio/public/assets/img/projects-imgs/amara-sinclair-05.webp',
@@ -166,11 +166,11 @@ export const projectsData =[
       textC: `"The session was a powerful experience. It pushed me to explore my street persona and embrace my inner strength. The lighting and styling really brought out my intense energy, while still allowing my authentic self to shine through. It was a challenge, but I’m pumped about how it turned out!"`,
     },  
     images: [
-      'lucian-photography-portfolio/public/assets/img/projects-imgs/matteo-moreau-01.webp',
       'lucian-photography-portfolio/public/assets/img/projects-imgs/matteo-moreau-02.webp',
+      'lucian-photography-portfolio/public/assets/img/projects-imgs/matteo-moreau-01.webp',
+      'lucian-photography-portfolio/public/assets/img/projects-imgs/matteo-moreau-05.webp',
       'lucian-photography-portfolio/public/assets/img/projects-imgs/matteo-moreau-03.webp',
       'lucian-photography-portfolio/public/assets/img/projects-imgs/matteo-moreau-04.webp',
-      'lucian-photography-portfolio/public/assets/img/projects-imgs/matteo-moreau-05.webp',
     ],
   },
 ]

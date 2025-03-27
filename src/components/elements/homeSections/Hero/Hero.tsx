@@ -5,49 +5,65 @@ import { oswald } from "@/utils/fonts/fonts";
 import { linesTextAnimation } from "@/utils/functions/animations/linesTextAnimation";
 import { splitTextIntoLines } from "@/utils/functions/ui_fn/splitTextIntoLines";
 import Image from "next/image";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState} from "react";
 
 const Hero = () => {
   const headerRef = useRef<HTMLHeadingElement>(null);
   const valuesRef = useRef<HTMLDivElement>(null)
   const casesRef = useRef<HTMLDivElement>(null)
+  const sectionRef = useRef<HTMLElement>(null)
+
+  const [ sectionMb, setSectionMb ] = useState<number>(700)
 
   const lineAnimationTime = 80
 
+  
   useEffect(() => {
 
-    if(valuesRef.current){
-      valuesRef.current.querySelectorAll('p').forEach((p, i)=>{setTimeout(() => {linesTextAnimation(p)}, i*lineAnimationTime);})
-    }
-
-    setTimeout(() => {
-        if (headerRef.current){
-        headerRef.current.style.opacity = '1'
-        splitTextIntoLines(headerRef.current);
-        const lines = headerRef.current.querySelectorAll('span')
-        if(lines){
-          lines.forEach((line, i)=>{
-            line.style.opacity = '0';
-            line.style.display = 'inline-block'
-            setTimeout(() => {
-              linesTextAnimation(line)
-            }, lineAnimationTime * i);
-          })
+      setTimeout(() => {
+        if(valuesRef.current){
+          valuesRef.current.querySelectorAll('p').forEach((p, i)=>{setTimeout(() => {linesTextAnimation(p)}, i*lineAnimationTime);})
         }
-      }
-      }, 480);
+        
+        setTimeout(() => {
+          if (headerRef.current){
+            headerRef.current.style.opacity = '1'
+            splitTextIntoLines(headerRef.current);
+            const lines = headerRef.current.querySelectorAll('span')
+            if(lines){
+              lines.forEach((line, i)=>{
+                line.style.opacity = '0';
+                line.style.display = 'inline-block'
+                setTimeout(() => {
+                  linesTextAnimation(line)
+                }, lineAnimationTime * i);
+              })
+            }
+          }
+        }, 480);
+        
+        setTimeout(() => {
+          if(casesRef){
+            linesTextAnimation(casesRef.current as HTMLElement)
+          }
+        }, 360);
+        
+      }, 500);
 
-    setTimeout(() => {
-      if(casesRef){
-        linesTextAnimation(casesRef.current as HTMLElement)
-      }
-    }, 360);
+    }, []);
 
-  }, []);
+    useEffect(() => {
+      if (sectionRef.current) {
+        setTimeout(() => {
+          setSectionMb(0); // Delayed update to trigger the animation
+        }, 100); // Adjust the delay as needed
+      }
+    }, []);
+
 
   return (
     <>
-      <section className="home-section pt-[200px] pr-3 pl-3 ">
+      <section className={`home-section pt-[200px] pr-3 pl-3`} ref={sectionRef} style={{marginBottom: `${sectionMb}px`, transition: "margin-bottom 2s cubic-bezier(0, 0.82, 0.27, 0.96)"}}>
         <GridContainer>
           <div className=" flex flex-col justify-between col-span-2">
             <div ref={valuesRef} className="flex flex-col gap-[0] text-[24px] font-bold">
@@ -87,7 +103,9 @@ const Hero = () => {
         </GridContainer>
       </section>
 
-      <section className="home-section mt-[120px] pt-3 pb-3 relative">
+      <section
+        className="home-section mt-[120px] pt-3 pb-3 relative"
+      >
         <div className="flex object-scale-down overflow-hidden rounded-2xl h-180">
           <Image
             className="object-cover object-center"
@@ -98,10 +116,19 @@ const Hero = () => {
             alt="Lucian Picture"
           />
         </div>
-        <p className={`flex flex-row justify-between text-[300px] font-black absolute text-white top-[150] w-full ${oswald.className}`}>
-          <span>LUCI</span><span>AN</span>
+        <p
+          className={`flex flex-row justify-between text-[300px] font-black absolute text-white top-[150] w-full ${oswald.className}`}
+        >
+          <span>LUCI</span>
+          <span>AN</span>
         </p>
       </section>
+
+      <style jsx>{`
+        .animate-section {
+          transform: translateY(0);
+        }
+      `}</style>
     </>
   );
 };

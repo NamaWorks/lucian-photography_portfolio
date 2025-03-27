@@ -28,12 +28,7 @@ const ProjectCard = ({data}:{data:ProjectDataInterface}) => {
           className='flex overflow-hidden rounded-[10px] object-cover h-[18svw] w-[full]' 
           // style={{opacity: 0}} 
           ref={imageContainerRef}>
-            <Image 
-            className='object-cover object-center'
-            src={
-              "/assets/img/projects-imgs/" + `${data.images[0].split("/").slice(-1)}`
-              } 
-              alt='image-project' width={700} height={700} />
+            <Image className='object-cover object-center' src={"/assets/img/projects-imgs/" + `${data.images[0].split("/").slice(-1)}`} alt='image-project' width={700} height={700} />
         </div>
         <div className='flex flex-col items-start justify-end gap-3 cursor-pointer' onClick={()=>{nextRouter.push(`projects/${data.projectId}`)}} ref={textsContainerRef}>
           <p className={`${oswald.className} cursor-pointer pointer-events-none`}>( {data.projectId.replace('p', "").replace('00', '00_')} )</p>

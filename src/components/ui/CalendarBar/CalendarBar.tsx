@@ -18,7 +18,7 @@ const CalendarBar = () => {
     <>
       <div className="flex justify-between z-1 w-full]">
         <button>
-          <div className="bg-gray-200 h-[24px] w-[26px] rounded xs flex items-center justify-center">
+          <div className="bg-gray-200 h-[24px] w-[26px] rounded xs flex items-center justify-center cursor-pointer">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -38,7 +38,7 @@ const CalendarBar = () => {
 
         <div className="overflow-hidden">
           <div className="flex flex-row4 p-10 relative">
-            {dates.map((date, i) => {
+            {dates.map((date:Date, i:number) => {
               return <DateSquare key={i} data={date} />;
             })}
           </div>
@@ -51,7 +51,7 @@ const CalendarBar = () => {
             // console.log(dates)
           }}
         >
-          <div className="bg-gray-200 h-[24px] w-[26px] rounded xs flex items-center justify-center">
+          <div className="bg-gray-200 h-[24px] w-[26px] rounded xs flex items-center justify-center cursor-pointer">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
