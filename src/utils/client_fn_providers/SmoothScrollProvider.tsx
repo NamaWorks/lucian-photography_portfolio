@@ -6,7 +6,7 @@ const SmoothScrollProvider = ({children}: {children: ReactNode}) => {
 
   useEffect(()=>{
     smoothScroll()
-  })
+  },[])
 
   return (
     <>
