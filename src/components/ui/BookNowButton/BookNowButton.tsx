@@ -1,3 +1,4 @@
+"use client";
 import { oswald } from '@/utils/fonts/fonts'
 import React from 'react'
 
