@@ -1,6 +1,6 @@
 'use client';
 
-import { ReactNode, useContext, useEffect } from "react";
+import { ReactNode, useContext, useEffect, useState } from "react";
 import { CalendarContext } from "../contexts/contexts";
 import { CalendarContextInterface } from "../interfaces/interfaces";
 import { latoSans, oswald } from "../fonts/fonts";
@@ -8,6 +8,7 @@ import { latoSans, oswald } from "../fonts/fonts";
 const ReservationProvider = ({children}: {children: ReactNode}) => {
 
   const { dates, setDates, chosenDate, setChosenDate, reservationsOpen, setReservationsOpen } = useContext(CalendarContext) as CalendarContextInterface
+  const [ timeDate, setTimeDate ] = useState<string>('')
 
   const hours = ['9am', '11am', '3pm', '5pm', '7pm']
 
@@ -15,11 +16,12 @@ const ReservationProvider = ({children}: {children: ReactNode}) => {
     setReservationsOpen(true)
   },[setReservationsOpen])
 
+
   return (
     <>
       {reservationsOpen && (
         <div
-          className={`fixed z-99 bg-[#D9D9D9] rounded-[5px] p-3 bottom-3 right-3 min-w-[30svw] flex flex-col gap-3`}
+          className={`fixed z-99 bg-[#D9D9D9] rounded-[5px] p-3 bottom-3 right-3 min-w-[30svw] flex flex-col gap-5`}
         >
           <div className="flex items-center justify-between">
             <h3
@@ -31,6 +33,7 @@ const ReservationProvider = ({children}: {children: ReactNode}) => {
             <div
               className="cursor-pointer"
               onClick={() => {
+
                 setReservationsOpen(false);
               }}
             >
@@ -41,9 +44,9 @@ const ReservationProvider = ({children}: {children: ReactNode}) => {
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 className="lucide lucide-x-icon lucide-x"
               >
                 <path d="M18 6 6 18" />
@@ -51,11 +54,11 @@ const ReservationProvider = ({children}: {children: ReactNode}) => {
               </svg>
             </div>
           </div>
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-5">
             {/* from here the toggle for dates */}
             <div className={`uppercase w-full bg-[#ffffff] p-1 flex items-center justify-between rounded-[2px] ${oswald.className} font-extralight text-[14px]`}>
               <label className="hidden" htmlFor="photoshoot-date">Select Date</label>
-              <input className="w-full" type="date" name="photoshoot-date" id="photoshoot-date" value={chosenDate ? chosenDate.toLocaleDateString().split('/').reverse().join('-') : ''} placeholder="SELECT DATE"/>
+              <input className="w-full" type="date" name="photoshoot-date" id="photoshoot-date" defaultValue={chosenDate ? chosenDate.toLocaleDateString().split('/').reverse().join('-') : ''} placeholder="SELECT DATE"/>
             </div>
             <div className={`uppercase p-1 flex items-center justify-between gap–2`}>
               {hours.map((hour) => {
@@ -63,11 +66,19 @@ const ReservationProvider = ({children}: {children: ReactNode}) => {
                   <>
                     <div
                       key={hour}
-                      className={`uppercase bg-[#ffffff] p-1 pr-3 pl-3 flex items-center opacity-[0.5] justify-center rounded-[2px] ${oswald.className} font-extralight text-[14px]`}
-                      onMouseEnter={(e) => {(e.target as HTMLDivElement).style.opacity = "1";}}
-                      onMouseLeave={(e) => { (e.target as HTMLDivElement).style.opacity='0.5'}}
+                      className={`uppercase bg-[#ffffff]  p-0.2 pr-3 pl-3 flex items-center opacity-[${hour.toUpperCase() === timeDate  ? 1 : 0.5}] hover:opacity-[1] justify-center rounded-[2px] ${oswald.className} font-extralight text-[14px] cursor-pointer transition-opacity duration-250 ease-in-out`}
+                      onClick={(e) => {
+                          // (e.target as HTMLDivElement).style.opacity = "1";
+                          if(timeDate===hour.toUpperCase()){
+                            setTimeDate('')
+                          } else {
+                            setTimeDate(((e.target as HTMLDivElement).querySelector('p') as HTMLParagraphElement).innerText)
+                          }
+                        }
+                      }
+                      // onMouseLeave={(e) => { (e.target as HTMLDivElement).style.opacity='0.5'}}
                     >
-                      <p>{hour}</p>
+                      <p className="pointer-events-none">{hour}</p>
                     </div>
                   </>
                 );
@@ -76,30 +87,35 @@ const ReservationProvider = ({children}: {children: ReactNode}) => {
           </div>
 
           {/* from here the form with the details */}
-          <form action="" className="flex flex-col items-end gap-3 mt-[100px]">
+          <form action="" className="flex flex-col items-end gap-10 mt-[100px]">
+            <div className="flex flex-col w-full gap-3">
+
             <input
               className={`w-full ${latoSans.className} text-[18px] border-solid border-[#000] border-b-1 border-r-0 border-l-0 boder-t-0 `}
               type="text"
               placeholder="First Name *"
               required
-            />
+              />
             <input
               className={`w-full ${latoSans.className} text-[18px] border-solid border-[#000] border-b-1 border-r-0 border-l-0 boder-t-0 `}
               type="text"
               placeholder="Last Name *"
               required
-            />
+              />
             <input
               className={`w-full ${latoSans.className} text-[18px] border-solid border-[#000] border-b-1 border-r-0 border-l-0 boder-t-0 `}
               type="email"
               placeholder="Email *"
               required
-            />
+              />
             <input
               className={`w-full ${latoSans.className} text-[18px] border-solid border-[#000] border-b-1 border-r-0 border-l-0 boder-t-0 `}
               type="tel"
+              minLength={8}
+              maxLength={14}
               placeholder="Phone Number"
-            />
+              />
+              </div>
             <button className="bg-[#ffffff] rounded-[5px] p-3 px-12 justify-self-end w-60 cursor-pointer">
               <p className={`${oswald.className} uppercase font-light`}>
                 Book <span className="font-semibold">Now</span>
