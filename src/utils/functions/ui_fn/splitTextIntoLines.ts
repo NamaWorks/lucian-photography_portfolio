@@ -26,6 +26,5 @@ export const splitTextIntoLines = (element: HTMLElement) => {
   
   document.body.removeChild(tempSpan)
 
-  // if(container){container.removeChild(tempSpan)}
   element.innerHTML = lines.map((line)=>{return `<span>${line}</span>`}).join('<br>')
 }

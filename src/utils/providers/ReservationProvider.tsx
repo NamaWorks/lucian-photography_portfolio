@@ -13,15 +13,25 @@ const ReservationProvider = ({children}: {children: ReactNode}) => {
   const hours = ['9am', '11am', '3pm', '5pm', '7pm']
 
   useEffect(()=>{
-    setReservationsOpen(true)
+    setReservationsOpen(false)
   },[setReservationsOpen])
 
 
   return (
     <>
-      {reservationsOpen && (
+      {/* {reservationsOpen===true &&  */}
+      (
         <div
-          className={`fixed z-99 bg-[#D9D9D9] rounded-[5px] p-3 bottom-3 right-3 min-w-[30svw] flex flex-col gap-5`}
+          className={`fixed z-99 bg-[#D9D9D9] rounded-[5px] p-3 bottom-3 right-3 min-w-[30svw] flex flex-col gap-5 duration-500 ease-in-out overflow-hidden`}
+          style={
+            {
+              // transition: 'height',
+              transitionDuration: '0.5s',
+              right: reservationsOpen ? 12 :  -window.innerWidth/10*5,
+              transitionBehavior: 'cubic-bezier(0.48, 0.01, 0, 0.99)',
+              // height: reservationsOpen ? '75svh' : '0svh'
+            }
+          }
         >
           <div className="flex items-center justify-between">
             <h3
@@ -116,14 +126,15 @@ const ReservationProvider = ({children}: {children: ReactNode}) => {
               placeholder="Phone Number"
               />
               </div>
-            <button className="bg-[#ffffff] rounded-[5px] p-3 px-12 justify-self-end w-60 cursor-pointer">
+            <button className="bg-[#ffffff] rounded-[5px] p-3 px-12 justify-self-end w-60 cursor-pointer" onClick={()=>{setReservationsOpen(true)}}>
               <p className={`${oswald.className} uppercase font-light`}>
                 Book <span className="font-semibold">Now</span>
               </p>
             </button>
           </form>
         </div>
-      )}
+      )
+      // }
       {children}
     </>
   );

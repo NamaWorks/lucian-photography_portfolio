@@ -37,7 +37,7 @@ const Projects = () => {
                 )
               } else {
                 return (
-                <div key={`${project.projectId}-projects-section`} className='col-span-2'>
+                <div key={`${project.projectId}-projects-section-${i}`} className='col-span-2'>
                   <ProjectCard data={project}/>
                 </div>
                 )
