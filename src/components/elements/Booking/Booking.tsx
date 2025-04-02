@@ -8,7 +8,7 @@ import React from "react";
 const Booking = () => {
   return (
     <>
-      <section className="pr-3 pl-3">
+      <section className="pr-3 pl-3" id="bookings">
         <GridContainer>
           <p
             className={`col-start-5 flex flex-col justify-center w-full ${oswald.className} text-[20px] uppercase font-medium`}

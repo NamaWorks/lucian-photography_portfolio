@@ -15,13 +15,14 @@ const ProjectAltLayout = ({project} : {project: ProjectDataInterface}) => {
               className="col-span-2 overflwo-hidden flex"
             >
               <Image
+                className='rounded-[10px]'
                 src={
                   "/assets/img/projects-imgs/" + `${image.split("/").slice(-1)}`
                 }
                 alt={`${image.split("/").slice(-1)}`}
                 width={1200}
                 height={800}
-              />
+                />
             </div>
           );
         }
@@ -42,10 +43,11 @@ const ProjectAltLayout = ({project} : {project: ProjectDataInterface}) => {
         if (i >= 2) {
           return (
             <div
-              key={`project-image-${i}`}
-              className="col-span-2 overflwo-hidden flex"
+            key={`project-image-${i}`}
+            className="col-span-2 overflwo-hidden flex"
             >
               <Image
+                className='rounded-[10px]'
                 src={
                   "/assets/img/projects-imgs/" + `${image.split("/").slice(-1)}`
                 }

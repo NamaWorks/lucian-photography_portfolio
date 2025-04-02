@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
+
 
 const Navbar = () => {
   return (
@@ -14,7 +14,7 @@ const Navbar = () => {
         </div>
 
         <div>
-          <Link href={'/#'} className='font-base text-xl'>
+          <Link href={`/#bookings`} className='font-base text-xl cursor-pointer'>
             {`(Book a Photoshoot)`}
           </Link>
         </div>

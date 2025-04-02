@@ -19,10 +19,11 @@ import {
    useRef, 
    useState 
   } from 'react';
-import { PageProps } from '../../../../.next/types/app/page';
+// import { PageProps } from '../../../../.next/types/app/page';
 
 
-const Project = ({params}:PageProps) => {
+
+const Project = ({ params }: { params: ProjectParamsInterior }) => {
 
   const { id } = use(params as unknown as Usable<ProjectParamsInterior>)
   // const { id } = params
