@@ -22,6 +22,11 @@ export interface CalendarContextInterface {
   setReservationsOpen: React.Dispatch<React.SetStateAction<boolean>>
 }
 
+export interface NotificationContextInterface {
+  notificationOn : boolean,
+  setNotificationOn: React.Dispatch<React.SetStateAction<boolean>>,
+}
+
 export interface ProjectParams {
   params: ProjectParamsInterior
 }
