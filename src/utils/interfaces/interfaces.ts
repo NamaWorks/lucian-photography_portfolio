@@ -25,6 +25,8 @@ export interface CalendarContextInterface {
 export interface NotificationContextInterface {
   notificationOn : boolean,
   setNotificationOn: React.Dispatch<React.SetStateAction<boolean>>,
+  notificationTexts: {title: string, subtitle:string},
+  setNotificationTexts: React.Dispatch<React.SetStateAction<{title: string, subtitle:string}>>
 }
 
 export interface ProjectParams {
@@ -33,4 +35,13 @@ export interface ProjectParams {
 
 export interface ProjectParamsInterior {
   id:string,
+}
+
+export interface FormDataInterface {
+  date:string,
+  hour:string,
+  firstName: string,
+  lastName: string,
+  email: string,
+  telephone: string
 }

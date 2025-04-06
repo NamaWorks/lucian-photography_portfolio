@@ -2,8 +2,9 @@
 
 import { ReactNode, useContext, useEffect, useState } from "react";
 import { CalendarContext, NotificationContext } from "../contexts/contexts";
-import { CalendarContextInterface, NotificationContextInterface } from "../interfaces/interfaces";
+import { CalendarContextInterface, FormDataInterface, NotificationContextInterface } from "../interfaces/interfaces";
 import { latoSans, oswald } from "../fonts/fonts";
+import { formChecker } from "../functions/checkers/formChecker";
 
 const ReservationProvider = ({ children }: { children: ReactNode }) => {
   const {
@@ -15,12 +16,15 @@ const ReservationProvider = ({ children }: { children: ReactNode }) => {
     setReservationsOpen,
   } = useContext(CalendarContext) as CalendarContextInterface;
   const [timeDate, setTimeDate] = useState<string>("");
-  const { setNotificationOn } = useContext(NotificationContext) as NotificationContextInterface;
+  const [ formData, setFormData ] = useState<FormDataInterface>({  date:chosenDate.toLocaleDateString().split('/').reverse().join('-'), hour:'', firstName: '', lastName: '', email: '', telephone: ''})
+  const { setNotificationOn, setNotificationTexts } = useContext(NotificationContext) as NotificationContextInterface;
   const hours = ["9am", "11am", "3pm", "5pm", "7pm"];
 
   useEffect(() => {
     setReservationsOpen(false);
   }, [setReservationsOpen]);
+
+  useEffect(()=>{},[chosenDate])
 
   return (
     <>
@@ -102,7 +106,7 @@ const ReservationProvider = ({ children }: { children: ReactNode }) => {
                       opacity: hour.toUpperCase() == timeDate ? 1 : 0.5,
                     }}
                     className={`uppercase bg-[#ffffff]  p-0.2 pr-3 pl-3 flex items-center  justify-center rounded-[2px] ${oswald.className} font-extralight text-[14px] cursor-pointer transition-all duration-250 ease-in-out border-1 border-transparent hover:border-[#2e3e42] hover:border-1`}
-                    onClick={(e) => { handleHourClick(setTimeDate, timeDate, hour, e) }}
+                    onClick={(e) => { handleHourClick(setTimeDate, timeDate, hour, e); setFormData({  date:formData?.date, hour:hour, firstName: formData.firstName, lastName: formData?.lastName, email: formData?.email, telephone: formData?.telephone})}}
                   >
                     <p className="pointer-events-none">{hour}</p>
                   </div>
@@ -119,16 +123,17 @@ const ReservationProvider = ({ children }: { children: ReactNode }) => {
               <label 
                 className="absolute pointer-events-none transition-all duration-250 ease-in-out" 
                 htmlFor="first-name"
-                style={{ opacity: 0.5 }}
+                style={{ opacity: 0.5}}
                 >
                   First Name
               </label>
               <input
+                onChange={(e)=>{setFormData({  date:formData?.date, hour:formData?.hour, firstName: e.target.value, lastName: formData?.lastName, email: formData?.email, telephone: formData?.telephone})}}
                 name="first-name"
                 className={`w-full ${latoSans.className} text-[18px] border-solid border-[#000] border-b-1 border-r-0 border-l-0 boder-t-0 focus:border-0`}
                 type="text"
                 onFocus={(e)=>{handleFocusInput(e.target.parentElement?.querySelector('label') as HTMLLabelElement)}}
-                onBlur={(e)=>{handleFocusInput(e.target.parentElement?.querySelector('label') as HTMLLabelElement, true)}}
+                onBlur={(e)=>{if(e.target.value === ''){handleFocusInput(e.target.parentElement?.querySelector('label') as HTMLLabelElement, true)}}}
                 required
               />
             </div>
@@ -136,16 +141,17 @@ const ReservationProvider = ({ children }: { children: ReactNode }) => {
               <label 
                 className="absolute pointer-events-none transition-all duration-250 ease-in-out" 
                 htmlFor="last-name"
-                style={{ opacity: 0.5 }}
+                style={{ opacity: 0.5}}
                 >
                   Last Name
               </label>
               <input
+                onChange={(e)=>{setFormData({  date:formData?.date, hour:formData?.hour, firstName: formData.firstName, lastName: e.target.value, email: formData?.email, telephone: formData?.telephone})}}
                 name="last-name"
                 className={`w-full ${latoSans.className} text-[18px] border-solid border-[#000] border-b-1 border-r-0 border-l-0 boder-t-0 focus:background-[#000]`}
                 type="text"
                 onFocus={(e)=>{handleFocusInput(e.target.parentElement?.querySelector('label') as HTMLLabelElement)}}
-                onBlur={(e)=>{handleFocusInput(e.target.parentElement?.querySelector('label') as HTMLLabelElement, true)}}
+                onBlur={(e)=>{if(e.target.value === ''){handleFocusInput(e.target.parentElement?.querySelector('label') as HTMLLabelElement, true)}}}
                 required
                 />
             </div>
@@ -153,16 +159,17 @@ const ReservationProvider = ({ children }: { children: ReactNode }) => {
               <label 
                 className="absolute pointer-events-none transition-all duration-250 ease-in-out" 
                 htmlFor="email"
-                style={{ opacity: 0.5 }}
+                style={{ opacity: 0.5}}
                 >
                   Email
               </label>
               <input
+                onChange={(e)=>{setFormData({  date:formData?.date, hour:formData?.hour, firstName: formData.firstName, lastName: formData.lastName, email: e.target.value, telephone: formData?.telephone})}}
                 name="email"
                 className={`w-full ${latoSans.className} text-[18px] border-solid border-[#000] border-b-1 border-r-0 border-l-0 boder-t-0 focus:border-0`}
                 type="email"
                 onFocus={(e)=>{handleFocusInput(e.target.parentElement?.querySelector('label') as HTMLLabelElement)}}
-                onBlur={(e)=>{handleFocusInput(e.target.parentElement?.querySelector('label') as HTMLLabelElement, true)}}
+                onBlur={(e)=>{if(e.target.value === ''){handleFocusInput(e.target.parentElement?.querySelector('label') as HTMLLabelElement, true)}}}
                 required
               />
             </div>
@@ -170,27 +177,37 @@ const ReservationProvider = ({ children }: { children: ReactNode }) => {
               <label 
                 className="absolute pointer-events-none transition-all duration-250 ease-in-out" 
                 htmlFor="telephone"
-                style={{ opacity: 0.5 }}
+                style={{ opacity: 0.5}}
                 >
                   Telephone
               </label>
               <input
+                onChange={(e)=>{setFormData({  date:formData?.date, hour:formData?.hour, firstName: formData.firstName, lastName: formData.lastName, email: formData?.email, telephone: e.target.value})}}
                 name="telephone"
                 className={`w-full ${latoSans.className} text-[18px] border-solid border-[#000] border-b-1 border-r-0 border-l-0 boder-t-0 focus:border-0`}
                 type="tel"
                 minLength={8}
                 maxLength={14}
                 onFocus={(e)=>{handleFocusInput(e.target.parentElement?.querySelector('label') as HTMLLabelElement)}}
-                onBlur={(e)=>{handleFocusInput(e.target.parentElement?.querySelector('label') as HTMLLabelElement, true)}}
+                onBlur={(e)=>{if(e.target.value === ''){handleFocusInput(e.target.parentElement?.querySelector('label') as HTMLLabelElement, true)}}}
               />
             </div>
           </div>
 
           <button
             className="bg-[#ffffff] rounded-[5px] p-3 px-12 justify-self-end w-60 cursor-pointer"
-            onClick={() => {
-              setNotificationOn(true)
-              setTimeDate('')
+            onClick={(e) => {
+              e.preventDefault()
+                const emptyFields = formChecker(formData)
+                if(emptyFields.length>0){
+                  setNotificationTexts({ title : `check form fields`, subtitle : `The next fields are missing: ${emptyFields.join('-')}` })
+                  setNotificationOn(true)
+                } else {
+                  setNotificationTexts({ title : `Info correctly sent.`, subtitle : `We will contact you in order to plan the session and get more details.` })
+                  setNotificationOn(true)
+                  setTimeDate('')
+                  setReservationsOpen(false)
+                }
             }}
           >
             <p className={`${oswald.className} uppercase font-light`}>

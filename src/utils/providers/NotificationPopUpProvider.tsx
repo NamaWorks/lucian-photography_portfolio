@@ -7,7 +7,7 @@ import { oswald } from "../fonts/fonts";
 import { linesTextAnimation } from "../functions/animations/linesTextAnimation";
 
 const NotificationPopUpProvider = ({ children }: { children: ReactNode }) => {
-  const { notificationOn, setNotificationOn } = useContext(
+  const { notificationOn, setNotificationOn, notificationTexts } = useContext(
     NotificationContext
   ) as NotificationContextInterface;
 
@@ -57,12 +57,11 @@ const NotificationPopUpProvider = ({ children }: { children: ReactNode }) => {
                 <span
                   className={`${oswald.className} text-[24px] uppercase font-medium`}
                 >
-                  Info correctly sent.
+                  {notificationTexts.title}
                 </span>
                 <br />
                 <span>
-                  We will contact you in order to plan the session and get more
-                  details.
+                  {notificationTexts.subtitle}
                 </span>
               </p>
             </div>

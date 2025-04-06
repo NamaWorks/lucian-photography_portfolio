@@ -44,7 +44,6 @@ const Navbar = () => {
 export default Navbar;
 
 function handleBookAPhotoshootClick(){
-
   const bookings = document.querySelector('#bookings')
 if(bookings){
   const bookingsPosY = (bookings as HTMLDivElement).offsetTop-(bookings as HTMLDivElement).scrollTop

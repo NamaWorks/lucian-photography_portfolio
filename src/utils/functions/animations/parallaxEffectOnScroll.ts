@@ -15,20 +15,12 @@ export const parallaxEffectOnScroll = (
 
   const smoothMove = () => {
     const elementCurrentPos = Number(element.style.top.replace("px", ""));
-
-    // console.log(
-    //   elementCurrentPos,
-    //   scrollAmount,
-    //   elementCurrentPos + scrollAmount
-    // );
-
-    // Updated condition to allow scrolling in the opposite direction
     if (
       (scrollAmount > 0 && elementCurrentPos > -maxMovement) ||
       (scrollAmount < 0 && elementCurrentPos < maxMovement)
     ) {
       element.style.top = `${
-        elementCurrentPos - scrollAmount * 0.3
+        elementCurrentPos - scrollAmount * 0.2
       }px`;
       scrollAmount *= 0.4;
       if (Math.abs(scrollAmount) > 0.5) {
