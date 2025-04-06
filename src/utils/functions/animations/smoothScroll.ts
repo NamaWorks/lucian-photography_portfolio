@@ -5,7 +5,7 @@ export const smoothScroll = () => {
   const handleWheel = (event: WheelEvent) => {
     event.preventDefault();
 
-    scrollAmount += event.deltaY;
+    scrollAmount += event.deltaY/2;
     if (!scrollTimeout) {
       scrollTimeout = window.requestAnimationFrame(smoothStep);
     }

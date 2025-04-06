@@ -15,14 +15,14 @@ const Projects = () => {
 
     if(projectsRef.current){
       projectsRef.current.style.top = '0'
-      parallaxEffectOnScroll(projectsRef.current, 110)      
+      parallaxEffectOnScroll(projectsRef.current, 150)
     }
 
   },[])
 
   return (
     <>
-      <section className={`pr-3 pl-3 relative`} ref={projectsRef}>
+      <section className={`pr-3 pl-3 relative`} ref={projectsRef} id='projects-section'>
         <GridContainer>
 
           {

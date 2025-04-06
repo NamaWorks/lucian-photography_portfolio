@@ -13,22 +13,23 @@ const Hero = () => {
   const casesRef = useRef<HTMLDivElement>(null)
   const sectionRef = useRef<HTMLElement>(null)
 
-  const [ sectionMb, setSectionMb ] = useState<number>(700)
+  const [ sectionMb, setSectionMb ] = useState<number>(window.innerHeight)
 
   const lineAnimationTime = 80
 
   
   useEffect(() => {
-    
+
     if(headerRef.current){
       splitTextIntoLines(headerRef.current);
     }
 
+    setTimeout(() => {
       setTimeout(() => {
         if(valuesRef.current){
           valuesRef.current.querySelectorAll('p').forEach((p, i)=>{setTimeout(() => {linesTextAnimation(p)}, i*lineAnimationTime);})
         }
-
+  
         setTimeout(() => {
           if (headerRef.current){
             headerRef.current.style.opacity = '1'
@@ -53,6 +54,8 @@ const Hero = () => {
         }, 360);
         
       }, 500);
+    }, 200);
+
 
     }, []);
 
@@ -60,39 +63,51 @@ const Hero = () => {
       if (sectionRef.current) {
         setTimeout(() => {
           setSectionMb(0); // Delayed update to trigger the animation
-        }, 100); // Adjust the delay as needed
+        }, 200); // Adjust the delay as needed
       }
     }, []);
 
 
   return (
     <>
-      <section className={`home-section pt-[200px] pr-3 pl-3`} ref={sectionRef} style={{marginBottom: `${sectionMb}px`, transition: "margin-bottom 2s cubic-bezier(0, 0.82, 0.27, 0.96)"}}>
+      <section
+        className={`home-section pt-[200px] pr-3 pl-3`}
+        ref={sectionRef}
+        style={{
+          marginBottom: `${sectionMb}px`,
+          transition: "margin-bottom 2s cubic-bezier(0, 0.82, 0.27, 0.96)",
+        }}
+      >
         <GridContainer>
           <div className=" flex flex-col justify-between col-span-2">
-            <div ref={valuesRef} className="flex flex-col gap-[0] text-[24px] font-bold">
+            <div
+              ref={valuesRef}
+              className="flex flex-col gap-[0] text-[24px] font-bold"
+            >
               <p className=" opacity-0 text-[24px]/6">Professional lighting.</p>
               <p className=" opacity-0 text-[24px]/6">Artistic direction. </p>
               <p className=" opacity-0 text-[24px]/6">Striking results.</p>
             </div>
 
-            <div ref={casesRef} className="opacity-0 flex flex-row justify-between w-65 border-b-1 border-[#1f1d24]">
+            <div
+              ref={casesRef}
+              className="opacity-0 flex flex-row justify-between w-65 border-b-1 border-[#1f1d24] items-center cursor-pointer"
+              onClick={handleCasesClick}
+            >
               <p className="font-medium">Explore Case Studies</p>
               <div className="w-4 overflow-hidden">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  width="100%"
-                  height="100%"
                   viewBox="0 0 24 24"
                   fill="none"
-                  stroke="currentColor"
+                  stroke="#000000"
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  className="lucide lucide-arrow-right"
+                  className="lucide lucide-arrow-down-icon lucide-arrow-down"
                 >
-                  <path d="M5 12h14" />
-                  <path d="m12 5 7 7-7 7" />
+                  <path d="M12 5v14" />
+                  <path d="m19 12-7 7-7-7" />
                 </svg>
               </div>
             </div>
@@ -107,9 +122,7 @@ const Hero = () => {
         </GridContainer>
       </section>
 
-      <section
-        className="home-section mt-[120px] pt-3 pb-3 relative"
-      >
+      <section className="home-section mt-[120px] pt-3 pb-3 relative">
         <div className="flex object-scale-down overflow-hidden rounded-2xl h-180">
           <Image
             className="object-cover object-center"
@@ -138,3 +151,13 @@ const Hero = () => {
 };
 
 export default Hero;
+
+function handleCasesClick(){
+  const projects = document.querySelector('#projects-section') 
+  const projectsPosY = (projects as HTMLDivElement).offsetTop-(projects as HTMLDivElement).scrollTop
+
+  window.scrollTo({
+    top: projectsPosY-200,
+    behavior: "smooth",
+  });
+}

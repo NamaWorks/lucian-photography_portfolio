@@ -15,9 +15,7 @@ const ReservationProvider = ({ children }: { children: ReactNode }) => {
     setReservationsOpen,
   } = useContext(CalendarContext) as CalendarContextInterface;
   const [timeDate, setTimeDate] = useState<string>("");
-
   const { setNotificationOn } = useContext(NotificationContext) as NotificationContextInterface;
-
   const hours = ["9am", "11am", "3pm", "5pm", "7pm"];
 
   useEffect(() => {
@@ -26,17 +24,14 @@ const ReservationProvider = ({ children }: { children: ReactNode }) => {
 
   return (
     <>
-      {/* {reservationsOpen===true &&  */}(
+
       <div
         className={`fixed z-99 bg-[#D9D9D9]/75 rounded-[5px] p-3 bottom-3 right-3 min-w-[30svw] flex flex-col gap-5 duration-500 ease-in-out overflow-hidden backdrop-blur-[5px] drop-shadow-2xl`}
         style={{
-          // transition: 'height',
           transitionDuration: "0.5s",
           transitionBehavior: "cubic-bezier(0.48, 0.01, 0, 0.99)",
           // transitionTimingFunction: "cubic-bezier(0.48, 0.01, 0, 0.99)",
           right: reservationsOpen ? 12 : (-window?.innerWidth / 10) * 5,
-          // right: reservationsOpen ? 12 : - 400,
-          // height: reservationsOpen ? '75svh' : '0svh'
         }}
       >
         <div className="flex items-center justify-between">
@@ -107,19 +102,7 @@ const ReservationProvider = ({ children }: { children: ReactNode }) => {
                       opacity: hour.toUpperCase() == timeDate ? 1 : 0.5,
                     }}
                     className={`uppercase bg-[#ffffff]  p-0.2 pr-3 pl-3 flex items-center  justify-center rounded-[2px] ${oswald.className} font-extralight text-[14px] cursor-pointer transition-all duration-250 ease-in-out border-1 border-transparent hover:border-[#2e3e42] hover:border-1`}
-                    onClick={(e) => {
-                      if (timeDate == hour.toUpperCase()) {
-                        setTimeDate("");
-                      } else {
-                        setTimeDate(
-                          (
-                            (e.target as HTMLDivElement).querySelector(
-                              "p"
-                            ) as HTMLParagraphElement
-                          ).innerText
-                        );
-                      }
-                    }}
+                    onClick={(e) => { handleHourClick(setTimeDate, timeDate, hour, e) }}
                   >
                     <p className="pointer-events-none">{hour}</p>
                   </div>
@@ -216,7 +199,7 @@ const ReservationProvider = ({ children }: { children: ReactNode }) => {
           </button>
         </form>
       </div>
-      ){/* } */}
+      
       {children}
     </>
   );
@@ -232,4 +215,19 @@ function handleFocusInput(label:HTMLLabelElement, out?: boolean){
     label.style.opacity = '0'
   }
 
+}
+
+function  handleHourClick(setTimeDate: React.Dispatch<React.SetStateAction<string>> ,timeDate: string, hour:string , e:React.MouseEvent<HTMLDivElement>
+){
+if (timeDate == hour.toUpperCase()) {
+    setTimeDate("");
+  } else {
+    setTimeDate(
+      (
+        (e.target as HTMLDivElement).querySelector(
+          "p"
+        ) as HTMLParagraphElement
+      ).innerText
+    );
+  }
 }
