@@ -19,16 +19,19 @@ const Hero = () => {
 
   
   useEffect(() => {
+    
+    if(headerRef.current){
+      splitTextIntoLines(headerRef.current);
+    }
 
       setTimeout(() => {
         if(valuesRef.current){
           valuesRef.current.querySelectorAll('p').forEach((p, i)=>{setTimeout(() => {linesTextAnimation(p)}, i*lineAnimationTime);})
         }
-        
+
         setTimeout(() => {
           if (headerRef.current){
             headerRef.current.style.opacity = '1'
-            splitTextIntoLines(headerRef.current);
             const lines = headerRef.current.querySelectorAll('span')
             if(lines){
               lines.forEach((line, i)=>{

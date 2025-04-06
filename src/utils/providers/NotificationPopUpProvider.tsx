@@ -50,7 +50,7 @@ const NotificationPopUpProvider = ({ children }: { children: ReactNode }) => {
             }}
           >
             <div
-              className={`bg-[#D9D9D9]/85 rounded-[5px] p-3 backdrop-blur-[5px] drop-shadow-2xl relative top-[3rem] overflow-hidden pointer-events-auto`}
+              className={`bg-[#D9D9D9]/85 rounded-[5px] p-3 backdrop-blur-[5px] drop-shadow-2xl relative top-[4rem] overflow-hidden pointer-events-auto`}
               onClick={()=>{setNotificationOn(false)}}
             >
               <p ref={textRef} className="text-center">
