@@ -23,7 +23,7 @@ import {
 
 
 
-const Project = ({ params }: { params: ProjectParamsInterior }) => {
+const Project = ({ params }: { params: Promise<ProjectParamsInterior> }) => {
 
   const { id } = use(params as unknown as Usable<ProjectParamsInterior>)
   // const { id } = params

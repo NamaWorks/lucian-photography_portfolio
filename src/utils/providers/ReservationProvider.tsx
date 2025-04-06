@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactNode, useContext, useEffect, useState } from "react";
+import { ReactNode, useContext, useEffect, useRef, useState } from "react";
 import { CalendarContext, NotificationContext } from "../contexts/contexts";
 import { CalendarContextInterface, FormDataInterface, NotificationContextInterface } from "../interfaces/interfaces";
 import { latoSans, oswald } from "../fonts/fonts";
@@ -17,25 +17,27 @@ const ReservationProvider = ({ children }: { children: ReactNode }) => {
   } = useContext(CalendarContext) as CalendarContextInterface;
   const [timeDate, setTimeDate] = useState<string>("");
   const [ formData, setFormData ] = useState<FormDataInterface>({  date:chosenDate.toLocaleDateString().split('/').reverse().join('-'), hour:'', firstName: '', lastName: '', email: '', telephone: ''})
+  const [ screenWidth, setScreenWidth ] = useState<number>(0)
   const { setNotificationOn, setNotificationTexts } = useContext(NotificationContext) as NotificationContextInterface;
   const hours = ["9am", "11am", "3pm", "5pm", "7pm"];
 
-  useEffect(() => {
-    setReservationsOpen(false);
-  }, [setReservationsOpen]);
+  const reservationDivRef = useRef(null)
 
-  useEffect(()=>{},[chosenDate])
+  useEffect(() => {
+      setReservationsOpen(false);
+      setScreenWidth(window.innerWidth)
+  }, [setReservationsOpen]);
 
   return (
     <>
-
       <div
+        ref={reservationDivRef}
         className={`fixed z-99 bg-[#D9D9D9]/75 rounded-[5px] p-3 bottom-3 right-3 min-w-[30svw] flex flex-col gap-5 duration-500 ease-in-out overflow-hidden backdrop-blur-[5px] drop-shadow-2xl`}
         style={{
           transitionDuration: "0.5s",
           transitionBehavior: "cubic-bezier(0.48, 0.01, 0, 0.99)",
           // transitionTimingFunction: "cubic-bezier(0.48, 0.01, 0, 0.99)",
-          right: reservationsOpen ? 12 : (-window?.innerWidth / 10) * 5,
+          right: reservationsOpen ? 12 : (-screenWidth),
         }}
       >
         <div className="flex items-center justify-between">

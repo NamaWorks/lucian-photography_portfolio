@@ -13,9 +13,11 @@ const Hero = () => {
   const casesRef = useRef<HTMLDivElement>(null)
   const sectionRef = useRef<HTMLElement>(null)
 
-  const [ sectionMb, setSectionMb ] = useState<number>(window.innerHeight)
+  const [ sectionMb, setSectionMb ] = useState<number>(0)
 
   const lineAnimationTime = 80
+
+  useEffect(()=>{setSectionMb(window.innerWidth)},[setSectionMb])
 
   
   useEffect(() => {
