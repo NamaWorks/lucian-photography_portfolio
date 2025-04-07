@@ -12,6 +12,7 @@ const Hero = () => {
   const valuesRef = useRef<HTMLDivElement>(null)
   const casesRef = useRef<HTMLDivElement>(null)
   const sectionRef = useRef<HTMLElement>(null)
+  const secondSectionRef = useRef<HTMLElement>(null)
 
   const [ sectionMb, setSectionMb ] = useState<number>(0)
 
@@ -62,8 +63,11 @@ const Hero = () => {
     }, []);
 
     useEffect(() => {
-      if (sectionRef.current) {
+      if (sectionRef.current ) {
         setTimeout(() => {
+          if(secondSectionRef.current){
+            secondSectionRef.current.style.opacity = '1'
+          }
           setSectionMb(0); // Delayed update to trigger the animation
         }, 200); // Adjust the delay as needed
       }
@@ -77,7 +81,7 @@ const Hero = () => {
         ref={sectionRef}
         style={{
           marginBottom: `${sectionMb}px`,
-          transition: "margin-bottom 2s cubic-bezier(0, 0.82, 0.27, 0.96)",
+          transition: "margin-bottom 3s cubic-bezier(0, 0.82, 0.27, 0.96)",
         }}
       >
         <GridContainer>
@@ -124,7 +128,7 @@ const Hero = () => {
         </GridContainer>
       </section>
 
-      <section className="home-section mt-[120px] pt-3 pb-3 relative">
+      <section className="home-section mt-[120px] pt-3 pb-3 relative opacity-0 duration-400" ref={secondSectionRef}>
         <div className="flex object-scale-down overflow-hidden rounded-2xl h-180">
           <Image
             className="object-cover object-center"

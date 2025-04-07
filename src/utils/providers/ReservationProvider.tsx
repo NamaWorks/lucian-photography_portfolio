@@ -32,12 +32,13 @@ const ReservationProvider = ({ children }: { children: ReactNode }) => {
     <>
       <div
         ref={reservationDivRef}
-        className={`fixed z-99 bg-[#D9D9D9]/75 rounded-[5px] p-3 bottom-3 right-3 min-w-[30svw] flex flex-col gap-5 duration-500 ease-in-out overflow-hidden backdrop-blur-[5px] drop-shadow-2xl`}
+        className={`fixed z-99 bg-[#D9D9D9]/75 rounded-[5px] p-3 bottom-3 right-3 min-w-[30svw] flex flex-col gap-5 duration-500 ease-in-out overflow-hidden backdrop-blur-[5px] drop-shadow-2xl opacity-0`}
         style={{
           transitionDuration: "0.5s",
           transitionBehavior: "cubic-bezier(0.48, 0.01, 0, 0.99)",
           // transitionTimingFunction: "cubic-bezier(0.48, 0.01, 0, 0.99)",
           right: reservationsOpen ? 12 : (-screenWidth),
+          opacity: reservationsOpen ? 1 : 0,
         }}
       >
         <div className="flex items-center justify-between">
