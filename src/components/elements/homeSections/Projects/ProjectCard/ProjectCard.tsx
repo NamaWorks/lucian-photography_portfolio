@@ -25,7 +25,7 @@ const ProjectCard = ({data}:{data:ProjectDataInterface}) => {
       <>
       <div className='grid col-span-3 grid-cols-2 gap-3'>
         <div 
-          className='flex overflow-hidden rounded-[10px] object-cover h-[18svw] w-[full]' 
+          className='flex overflow-hidden rounded-[10px] object-cover h-[18svw] w-[full] min-h-[48svw] md:min-h-0' 
           // style={{opacity: 0}} 
           ref={imageContainerRef}>
             <Image className='object-cover object-center' src={"/assets/img/projects-imgs/" + `${data.images[0].split("/").slice(-1)}`} alt='image-project' width={700} height={700} />

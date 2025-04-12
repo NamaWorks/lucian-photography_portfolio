@@ -15,7 +15,7 @@ const ImagesScroll = () => {
               <Image
                 src={image}
                 alt="image-scroll"
-                className="object-cover object-[0_-400px]"
+                className="object-cover object-center  xl:object-[0_-400px]"
                 layout="responsive"
                 width={1000}
                 height={200}

@@ -85,7 +85,10 @@ const Hero = () => {
         }}
       >
         <GridContainer>
-          <div className=" flex flex-col justify-between col-span-2">
+          <div className="
+            flex flex-col justify-between col-start-1 col-span-2  gap-4
+             xl:col-start-1 xl:gap-0"
+          >
             <div
               ref={valuesRef}
               className="flex flex-col gap-[0] text-[24px] font-bold"
@@ -119,7 +122,10 @@ const Hero = () => {
             </div>
           </div>
 
-          <div className="col-start-4 col-span-3">
+          <div className="
+            row-start-1 col-start-1 col-span-6 mb-10 
+            xl:col-span-3 xl:col-start-4 xl:mb-0"
+          >
             <h1 ref={headerRef} className="opacity-0 font-bold text-[40px]/9 ">
               Photography Studio that highlights your best angles. Create a
               portfolio that turns heads. Own the moment.
@@ -128,8 +134,17 @@ const Hero = () => {
         </GridContainer>
       </section>
 
-      <section className="home-section mt-[120px] pt-3 pb-3 relative opacity-0 duration-400" ref={secondSectionRef}>
-        <div className="flex object-scale-down overflow-hidden rounded-2xl h-180">
+      <section 
+        className="
+          home-section mt-[120px] pt-3 pb-3 relative opacity-0 duration-400
+        " 
+        ref={secondSectionRef}>
+        <div 
+          className="
+            w-full
+            flex object-scale-down overflow-hidden rounded-2xl h-180
+          "
+          >
           <Image
             className="object-cover object-center"
             layout="responsive"
@@ -140,18 +155,15 @@ const Hero = () => {
           />
         </div>
         <p
-          className={`flex flex-row justify-between text-[300px] font-black absolute text-white top-[150] w-full ${oswald.className}`}
+          className={`
+            flex flex-row justify-between font-black absolute  w-full text-white  ${oswald.className} text-[125px] top-65
+            xl:text-[300px] xl:top-[150]
+          `}
         >
           <span>LUCI</span>
           <span>AN</span>
         </p>
       </section>
-
-      <style jsx>{`
-        .animate-section {
-          transform: translateY(0);
-        }
-      `}</style>
     </>
   );
 };
