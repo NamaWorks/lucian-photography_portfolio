@@ -12,7 +12,7 @@ const ProjectLayout = ({project} : {project: ProjectDataInterface}) => {
           return (
             <div
               key={`project-image-${i}`}
-              className="col-span-2 overflwo-hidden flex"
+              className="col-span-6 lg:col-span-2 overflwo-hidden flex"
             >
               <Image
                 className='rounded-[10px]'
@@ -28,13 +28,13 @@ const ProjectLayout = ({project} : {project: ProjectDataInterface}) => {
         }
       })}
 
-      <div className=" col-span-4 flex flex-col justify-center">
+      <div className=" col-span-6 lg:col-span-4 flex flex-col justify-center">
         <div className="w-full">
-          <p className={`pr-[75%] ${latoSans.className} font-bold text-[24px]`}>{project?.texts.textB}</p>
+          <p className={`pr-[25%] lg:pr-[75%] ${latoSans.className} font-bold text-[24px]`}>{project?.texts.textB}</p>
         </div>
 
         <div className="w-full">
-          <p className={`pl-[25%] w-[75%] ${latoSans.className} text-[18px]`}>{project?.texts.textC}</p>
+          <p className={`pl-[15%] w-[100%] lg:pl-[25%] lg:w-[75%] ${latoSans.className} text-[18px]`}>{project?.texts.textC}</p>
         </div>
       </div>
 
@@ -44,7 +44,7 @@ const ProjectLayout = ({project} : {project: ProjectDataInterface}) => {
           return (
             <div
             key={`project-image-${i}`}
-            className="col-span-2 overflwo-hidden flex"
+            className="col-span-6 lg:col-span-2 overflwo-hidden flex"
             >
               <Image
                 className='rounded-[10px]'

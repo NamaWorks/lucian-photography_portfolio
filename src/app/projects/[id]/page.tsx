@@ -66,11 +66,11 @@ const Project = ({ params }: { params: Promise<ProjectParamsInterior> }) => {
     <main className='pb-3'>
     <section id={`project-page-${id}`} className='project-section pt-[175px] pr-3 pl-3'>
       <GridContainer>
-        <div className='col-start-2 col-end-5 mb-[120px]'>
+        <div className='col-start-1 col-end-7 lg:col-start-2 lg:col-end-5 mb-[120px]'>
           <p ref={headerRef} className='font-bold text-[32px]/9 opacity-0'>{project?.texts.textA}</p>
         </div>
-          <p className={`col-start-1 ${oswald.className}`}>{`( ${project?.projectId.replaceAll('p', '').replaceAll('00', '00_')} )`}</p>
-          <p className='col-start-2'>{project?.date}</p>
+          <p className={`col-start-1 col-span-2 lg:col-end-2 ${oswald.className}`}>{`( ${project?.projectId.replaceAll('p', '').replaceAll('00', '00_')} )`}</p>
+          <p className='col-start-3 lg:col-start-2'>{project?.date}</p>
           <p className='col-start-6 text-right'>{project?.modelName}</p>
 
         <div className='col-start-1 col-end-7'>
